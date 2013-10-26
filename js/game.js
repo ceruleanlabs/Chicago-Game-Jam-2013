@@ -34,7 +34,16 @@ var gameBoard = {
 
     setLives: function(num) {
         this.livesLeft = num;
-        $("#lives").width(16 * num);
+        lives = $("#lives");
+        for (var i = 0; i < num; i++) {
+            lives.append("<div></div>");
+        }
+
+        $("#lives").children().bind("flicker", function() {
+            $(this).fadeOut(500).delay(100).fadeIn(500).delay(50)
+            .fadeOut(400).delay(50).fadeIn(400).delay(100)
+            .fadeOut(300);
+        });
     },
 
     toggleState: function() {
@@ -50,13 +59,12 @@ var gameBoard = {
         }, ms_seconds, "linear", function() {
             $(this).hide().width(255);
             $("#lives").show();
+            $("#lives div:visible:last").trigger("flicker");
         });
     },
 
     playerDied: function() {
         this.livesLeft -= 1;
-        var w = $("#lives").width();
-        $("#lives").width(w - 16);
     }
 }
 
