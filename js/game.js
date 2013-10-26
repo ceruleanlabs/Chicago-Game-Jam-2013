@@ -35,6 +35,8 @@ var gameBoard = {
     setLives: function(num) {
         this.livesLeft = num;
         lives = $("#lives");
+
+        lives.children().remove();
         for (var i = 0; i < num; i++) {
             lives.append("<div></div>");
         }
