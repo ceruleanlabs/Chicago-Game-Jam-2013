@@ -38,6 +38,7 @@ Crafty.c("Player", {
         gameBoard.toggleState();
         gameBoard.playerDied();
         soundManager.pauseBackgroundMusic();
+        soundManager.playSound("spirit_music", 0.5);
         this.destroy();
     },
 

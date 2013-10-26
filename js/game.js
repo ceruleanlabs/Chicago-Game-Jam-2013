@@ -63,13 +63,13 @@ var gameBoard = {
 var soundManager = {
     music_started: false,
 
-    playSound: function(sound_id) {
-        Crafty.audio.play(sound_id);
+    playSound: function(sound_id, volume) {
+        Crafty.audio.play(sound_id, 1, volume);
     },
 
     startBackgroundMusic: function() {
         if(!this.music_started) {
-            Crafty.audio.play("background_music", -1, 1);
+            Crafty.audio.play("background_music", -1, 0.5);
             this.music_started = true;
         }
     },
