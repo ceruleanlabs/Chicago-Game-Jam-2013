@@ -16,6 +16,7 @@ Crafty.c("Player", {
             if(!this._dead) {
                 // Play animation
                 console.log('Play Animation', deathblocks[0].obj.get_animation());
+                soundManager.playSound("player_hurt", 1);
                 this._dead = true;
                 that = this;
                 setTimeout(function(){that.kill()},1000);

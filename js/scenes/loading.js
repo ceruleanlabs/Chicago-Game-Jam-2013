@@ -38,7 +38,9 @@ Crafty.scene("loading", function () {
         texture_door_down_right_afterlife: [2, 0],
         texture_door_left_left_afterlife: [2, 11],
         texture_door_left_right_afterlife: [2, 10],
-        texture_fire: [0, 12]
+        texture_fire: [0, 12],
+        texture_key: [0, 13],
+        texture_key_afterlife: [1, 13]
     });
 
     Crafty.sprite("images/Player_sprite_sheet.png", {
@@ -56,7 +58,8 @@ Crafty.scene("loading", function () {
         turning_ghost: ["sounds/turning_ghost.mp3",
         "sounds/turning_ghost.wav"],
         background_music: ["sounds/on_a_quest.mp3"],
-        spirit_music: ["sounds/spirit_music.mp3"]
+        spirit_music: ["sounds/spirit_music.mp3"],
+        player_hurt: ["sounds/player_hurt.wav"]
     });
 
     // Loads the sprite color module from an external source
