@@ -12,7 +12,15 @@ Crafty.scene("loading", function () {
         texture_stone_wall: [0, 1],
         texture_stone_floor: [0, 0],
         texture_stone_wall_afterlife: [1, 1],
-        texture_stone_floor_afterlife: [1, 0]
+        texture_stone_floor_afterlife: [1, 0],
+        texture__fence_up: [0, 2],
+        texture__fence_up_afterlife: [1, 2],
+        texture__fence_right: [0, 3],
+        texture__fence_right_afterlife: [1, 3],
+        texture__fence_down: [0, 4],
+        texture__fence_down_afterlife: [1, 4],
+        texture__fence_left: [0, 5],
+        texture__fence_left_afterlife: [1, 5],
     });
     
     // Loads the sprite color module from an external source
