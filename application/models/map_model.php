@@ -38,9 +38,11 @@ class Map_model extends CI_Model {
             
             while (!feof($f)) {
                 $line = chop(fgets($f, 4096));
-                $explosion = explode(':', $line, 2);
-                $lineTemp = '"'.$explosion[0].'": "'.trim($explosion[1]).'",';
-                $object .= $lineTemp;
+                if (strpos($line, ':') !== false) {
+                    $explosion = explode(':', $line, 2);
+                    $lineTemp = '"'.$explosion[0].'": "'.trim($explosion[1]).'",';
+                    $object .= $lineTemp;
+                }
             }
             $object = substr($object, 0, -1);
             $object .= '}}';
