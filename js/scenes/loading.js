@@ -33,7 +33,9 @@ Crafty.scene("loading", function () {
     // Audio
     Crafty.audio.add({
         switch_off: ["sounds/switch_off_sfx.mp3",
-        "sounds/switch_off_sfx.wav"]
+        "sounds/switch_off_sfx.wav"],
+        switch_on: ["sounds/switch_on_sfx.mp3",
+        "sounds/switch_on_sfx.wav"]
     });
 
     // Loads the sprite color module from an external source

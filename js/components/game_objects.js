@@ -36,6 +36,7 @@ Crafty.c("Fire", {
 
 Crafty.c("Door", {
     open: function() {
+        soundManager.playSound("switch_on");
         levelManager.loadMap(gameBoard.getNextMap());
     },
 
