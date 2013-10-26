@@ -12,7 +12,7 @@ h1 {
   font-family: 'Eater', cursive;
   font-size: 36px;
   line-height: 36px;
-  color: gray;
+  color: #aaa;
 }
 
 .dead h1 {
@@ -48,7 +48,7 @@ h2 {
 
 #container > div {
   display: inline-block;
-  box-shadow: 0px 0px 40px 0px #000000, 0px 0px 100px 0px #000000 inset;
+  box-shadow: 0px 0px 40px 0px #000, 0px 0px 50px 0px #000 inset;
   border: 1px black solid;
 }
 
