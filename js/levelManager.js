@@ -9,7 +9,8 @@ var levelManager = {
         D: function (x, y) { Crafty.e("Door").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
         K: function (x, y) { Crafty.e("Collectable, SwitchableTexture").SwitchableTexture("texture_key").Collectable("key").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
         O: function (x, y) { Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        P: function (x, y) { Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); }
+        P: function (x, y) { Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
+        S: function (x, y) { Crafty.e("Player").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: 32, h: 55, z:52}) }
     },
 
     createWall: function (x, y) {
@@ -45,7 +46,6 @@ var levelManager = {
             });
             Crafty.scene(level.toString());
             Crafty.trigger("StopMovement");
-            Crafty.e("Player").attr({x: 3*gameBoard.tileSize, y: 3*gameBoard.tileSize, w: 32, h: 55, z:52});
             soundManager.startBackgroundMusic();
         });
     },
