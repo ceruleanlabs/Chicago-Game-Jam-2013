@@ -1,11 +1,13 @@
 var levelManager = {
     tileMap: {
-        X: function (x, y) { levelManager.createWall(x, y); }
+        X: function (x, y) { levelManager.createWall(x, y); },
+        F: function (x, y) { Crafty.e("2D, DOM, Fence").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); }
     },
 
     createWall: function (x, y) {
         Crafty.e("2D, DOM, solid, SwitchableTexture").SwitchableTexture("texture_stone_wall").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
     },
+
 
     loadMap: function (level, loadComplete) {
         var map = null;
