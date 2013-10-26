@@ -37,6 +37,7 @@ Crafty.c("Player", {
         }
         gameBoard.toggleState();
         gameBoard.playerDied();
+        soundManager.pauseBackgroundMusic();
         this.destroy();
     },
 
@@ -66,6 +67,7 @@ Crafty.c("GhostPlayer", {
         var new_player = Crafty.e("Player").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
         gameBoard.toggleState();
+        soundManager.unpauseBackgroundMusic();
         this.destroy();
     },
 

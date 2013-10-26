@@ -54,7 +54,7 @@ Crafty.scene("loading", function () {
         "sounds/switch_on_sfx.wav"],
         turning_ghost: ["sounds/turning_ghost.mp3",
         "sounds/turning_ghost.wav"],
-        background_music: ["sounds/background_music.mp3"]
+        background_music: ["sounds/on_a_quest.mp3"]
     });
 
     // Loads the sprite color module from an external source

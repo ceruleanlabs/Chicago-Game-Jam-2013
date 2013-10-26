@@ -16,7 +16,6 @@ var levelManager = {
         Crafty.e("2D, DOM, solid, SwitchableTexture").SwitchableTexture("texture_stone_wall").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
     },
 
-
     loadMap: function (level, loadComplete) {
         var map = null;
         $.get('map/load/'+level, function(data) {
@@ -47,6 +46,7 @@ var levelManager = {
             Crafty.scene(level.toString());
             Crafty.trigger("StopMovement");
             Crafty.e("Player").attr({x: 3*gameBoard.tileSize, y: 3*gameBoard.tileSize, w: 32, h: 55});
+            soundManager.startBackgroundMusic();
         });
     },
     
