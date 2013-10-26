@@ -44,7 +44,9 @@ var gameBoard = {
         $("#lives").children().bind("flicker", function() {
             $(this).fadeOut(500).delay(100).fadeIn(500).delay(50)
             .fadeOut(400).delay(50).fadeIn(400).delay(100)
-            .fadeOut(300);
+            .fadeOut(300, function() {
+                $(this).remove();
+            });
         });
     },
 
