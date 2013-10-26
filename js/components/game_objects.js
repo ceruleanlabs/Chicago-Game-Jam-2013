@@ -54,3 +54,20 @@ Crafty.c("Door", {
         });
     }
 });
+
+Crafty.c("Collectable", {
+    _item_name: "default",
+    init: function() {
+        this.requires("2D, DOM, Color").color("rgb(238, 183, 88)");
+    },
+
+    collect: function() {
+        this.destroy();
+        return this._item_name;
+    },
+
+    Collectable: function(name) {
+        this._item_name = name;
+        return this;
+    }
+});

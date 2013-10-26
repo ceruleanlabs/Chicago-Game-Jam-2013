@@ -6,6 +6,7 @@
 
 Crafty.c("Player", {
     _dead: false,
+    _items: [],
 
     init: function() {
         this.requires("DOM, Color, 2D, Collision, Movement")
@@ -21,23 +22,34 @@ Crafty.c("Player", {
                 setTimeout(function(){that.kill()},1000);
             }
         });
+
+        this.onHit('Collectable', function (collectibles) {
+            for (var i = 0 ; i < collectibles.length ; i++)
+                this._items.push(collectibles[i].obj.collect());
+        });
     },
 
     kill: function() {
         Crafty.e("2D, DOM, Color").color("rgb(200, 0, 0)").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
-        Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+        var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+        new_player.set_items(this._items);
         gameBoard.toggleState();
         this.destroy();
     },
 
     has_key: function() {
-        return true;
+        return _.contains(this._items, "key");
+    },
+
+    set_items: function(items) {
+        this._items = items;
     }
 });
 
 Crafty.c("GhostPlayer", {
     _dead: false,
     _timer: 1000 * 10, // 10 seonds
+    _items: [],
 
     init: function() {
         this.requires("DOM, Color, 2D, Collision, Movement")
@@ -48,8 +60,13 @@ Crafty.c("GhostPlayer", {
     },
 
     kill: function() {
-        Crafty.e("Player").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+        var new_player = Crafty.e("Player").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+        new_player.set_items(this._items);
         gameBoard.toggleState();
         this.destroy();
+    },
+
+    set_items: function(items) {
+        this._items = items;
     }
 });
