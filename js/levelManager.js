@@ -4,7 +4,7 @@ var levelManager = {
     },
 
     createWall: function (x, y) {
-        Crafty.e("2D, DOM, solid, stone_wall").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
+        Crafty.e("2D, DOM, solid, SwitchableTexture").SwitchableTexture("texture_stone_wall").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
     },
 
     loadMap: function (level, loadComplete) {
@@ -28,7 +28,7 @@ var levelManager = {
                             if(levelManager.tileMap[map[i][j]])
                                 levelManager.tileMap[map[i][j]](j, i);
                             else
-                                Crafty.e("2D, DOM, stone_floor").attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
+                                Crafty.e("2D, DOM, SwitchableTexture").SwitchableTexture("texture_stone_floor").attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
                         }
                     }
                 }

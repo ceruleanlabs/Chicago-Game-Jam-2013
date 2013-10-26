@@ -9,8 +9,10 @@ Crafty.scene("loading", function () {
   Crafty.load(["images/sprite_sheet.png"], function () {
     // Creates the sprite for the player
     Crafty.sprite(32, "images/sprite_sheet.png", {
-        stone_wall: [0, 1],
-        stone_floor: [0, 0]
+        texture_stone_wall: [0, 1],
+        texture_stone_floor: [0, 0],
+        texture_stone_wall_afterlife: [1, 1],
+        texture_stone_floor_afterlife: [1, 0]
     });
     
     // Loads the sprite color module from an external source
