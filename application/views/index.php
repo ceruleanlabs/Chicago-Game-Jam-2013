@@ -24,7 +24,10 @@
   <h2>Chicago Game Jam 2013</h2>
     <div id="container">
       <div id="cr-stage"></div>
-      <div id="game-info">It's a metaphor for death.</div>
+      <div id="status" class="sidebar">
+        <div id="timer"></div>
+      </div>
+      <div id="game-info" class="sidebar">It's a metaphor for death.</div>
     </div>
 </body>
 </html>

@@ -29,14 +29,33 @@ h2 {
 }
 
 #container {
-  height: 512px;
-  text-align: center;
+  height: 514px;
+  width: 783px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  width: 225px;
+  float: right;
+}
+
+#status {
+  vertical-align: top;
+  height: 20px;
+  width: 255px;
+}
+
+#timer {
+  height: inherit;
+  width: inherit;
+  background: red;
+  float: left;
+  display: none;
 }
 
 #game-info {
-  width: 226px;
-  height: 482px;
-  margin-left: 15px;
+  height: 445px;
+  margin-top: 15px;
   vertical-align: top;
   padding: 15px;
   background-color: gray;
@@ -53,6 +72,7 @@ h2 {
 }
 
 #cr-stage {
+  float: left;
   width: 512px;
   height: inherit;
   background-color: #afafaf;
