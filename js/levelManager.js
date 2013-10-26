@@ -35,7 +35,7 @@ var levelManager = {
                     map = mapData.layers[a];
                     for (var i = 0; i < map.length; i++) {
                         for (var j = 0; j < map[0].length; j++) {
-                             Crafty.e("2D, DOM, SwitchableTexture").SwitchableTexture("texture_stone_floor").attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
+                             Crafty.e("2D, DOM, SwitchableTexture").SwitchableTexture("texture_stone_floor").attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize, z: -1});
                             if(levelManager.tileMap[map[i][j]])
                                 levelManager.tileMap[map[i][j]](j, i);
                         }
@@ -45,7 +45,7 @@ var levelManager = {
             });
             Crafty.scene(level.toString());
             Crafty.trigger("StopMovement");
-            Crafty.e("Player").attr({x: 3*gameBoard.tileSize, y: 3*gameBoard.tileSize, w: 32, h: 55});
+            Crafty.e("Player").attr({x: 3*gameBoard.tileSize, y: 3*gameBoard.tileSize, w: 32, h: 55, z:52});
             soundManager.startBackgroundMusic();
         });
     },

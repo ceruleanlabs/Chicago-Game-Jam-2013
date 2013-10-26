@@ -29,7 +29,7 @@ Crafty.c("Player", {
     },
 
     kill: function() {
-        var dead_body = Crafty.e("2D, DOM, Color, player_dead_laying_down").attr({x: this.x, y: this.y, w: this.h, h: this.w});
+        var dead_body = Crafty.e("2D, DOM, Color, player_dead_laying_down").attr({x: this.x, y: this.y, w: this.h, h: this.w, z: -1});
         var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
         if(Math.random() < 0.5) {
