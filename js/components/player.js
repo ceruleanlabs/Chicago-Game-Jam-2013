@@ -33,6 +33,7 @@ Crafty.c("Player", {
         var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
         gameBoard.toggleState();
+        gameBoard.playerDied();
         this.destroy();
     },
 
@@ -56,6 +57,7 @@ Crafty.c("GhostPlayer", {
         .stopOnSolids();
         that = this;
         setTimeout(function(){that.kill()}, this._timer);
+        gameBoard.startTimer(this._timer);
     },
 
     kill: function() {

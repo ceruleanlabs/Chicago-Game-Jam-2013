@@ -14,6 +14,7 @@ var gameBoard = {
     standardAnimationLength: 50,   // Number of frames to play animations
     nextMap: '',
     currentMap: '',
+    livesLeft: 0,
 
     getHeight: function () {
         return this.height * this.tileSize;
@@ -31,18 +32,26 @@ var gameBoard = {
         return this.nextMap;
     },
 
+    setLives: function(num) {
+        this.livesLeft = num;
+    },
+
     toggleState: function() {
         Crafty.trigger("ToggleState");
         Crafty.trigger("toggle_texture");
         $("body").toggleClass("dead");
     },
 
-    startTimer: function(seconds) {
+    startTimer: function(ms_seconds) {
         $("#timer").show().animate({
             width: "0"
-        }, seconds * 1000, function() {
+        }, ms_seconds , function() {
             $(this).hide().width(255);
         });
+    },
+
+    playerDied: function() {
+        this.livesLeft -= 1;
     }
 }
 

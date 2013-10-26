@@ -17,3 +17,4 @@ X--------------X
 XXXXXXXXXXXXXXXX
 METADATA
 nextMap: 1
+lives: 3

@@ -27,6 +27,7 @@ var levelManager = {
                 var nextMap = mapData.metadata.nextMap;
                 gameBoard.setNextMap(nextMap);
                 gameBoard.currentMap = level;
+                gameBoard.setLives(mapData.metadata.lives);
                 console.log("set", nextMap);
               
                 for (var a = 0; a < mapData.layers.length; a++) {
