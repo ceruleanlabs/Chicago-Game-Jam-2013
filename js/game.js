@@ -55,6 +55,12 @@ var gameBoard = {
     }
 }
 
+var soundManager = {
+    playSound: function(sound_id) {
+        Crafty.audio.play(sound_id);
+    }
+}
+
 $(document).ready(function () {
   Crafty.init(gameBoard.getWidth(), gameBoard.getHeight());
   Crafty.scene("loading");

@@ -29,7 +29,7 @@ Crafty.c("Player", {
     },
 
     kill: function() {
-        Crafty.e("2D, DOM, Color").color("rgb(200, 0, 0)").attr({x: this.x, y: this.y, w: this.h, h: this.w});
+        Crafty.e("2D, DOM, Color, player_dead_laying_down").attr({x: this.x, y: this.y, w: this.h, h: this.w});
         var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
         gameBoard.toggleState();
@@ -52,8 +52,7 @@ Crafty.c("GhostPlayer", {
     _items: [],
 
     init: function() {
-        this.requires("DOM, Color, 2D, Collision, Movement")
-        .color('rgb(20, 40, 75)')
+        this.requires("DOM, 2D, Collision, Movement, player_dead_standing")
         .stopOnSolids();
         that = this;
         setTimeout(function(){that.kill()}, this._timer);

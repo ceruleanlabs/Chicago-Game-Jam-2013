@@ -25,8 +25,17 @@ Crafty.scene("loading", function () {
     });
 
     Crafty.sprite("images/Player_sprite_sheet.png", {
-        player_standing: [0,0,32,55]
+        player_standing: [0,0,32,55],
+        player_dead_standing: [32,0,32,55],
+        player_dead_laying_down: [0,55,55,32]
     });
+
+    // Audio
+    Crafty.audio.add({
+        switch_off: ["sounds/switch_off_sfx.mp3",
+        "sounds/switch_off_sfx.wav"]
+    });
+
     // Loads the sprite color module from an external source
     Crafty.modules({ SpriteColor: 'RELEASE' }, function () {
         // Simulate a load time for now to make sure this works

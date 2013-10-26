@@ -62,6 +62,7 @@ Crafty.c("Collectable", {
     },
 
     collect: function() {
+        soundManager.playSound("switch_off");
         this.destroy();
         return this._item_name;
     },
