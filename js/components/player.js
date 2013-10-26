@@ -9,8 +9,7 @@ Crafty.c("Player", {
     _items: [],
 
     init: function() {
-        this.requires("DOM, Color, 2D, Collision, Movement")
-        .color('rgb(20, 75, 40)')
+        this.requires("DOM, 2D, Collision, Movement, player_standing")
         .stopOnSolids();
 
         this.onHit('DeathBlock', function (deathblocks) {
@@ -30,8 +29,8 @@ Crafty.c("Player", {
     },
 
     kill: function() {
-        Crafty.e("2D, DOM, Color").color("rgb(200, 0, 0)").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
-        var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+        Crafty.e("2D, DOM, Color").color("rgb(200, 0, 0)").attr({x: this.x, y: this.y, w: this.h, h: this.w});
+        var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
         gameBoard.toggleState();
         this.destroy();
@@ -60,7 +59,7 @@ Crafty.c("GhostPlayer", {
     },
 
     kill: function() {
-        var new_player = Crafty.e("Player").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+        var new_player = Crafty.e("Player").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
         gameBoard.toggleState();
         this.destroy();

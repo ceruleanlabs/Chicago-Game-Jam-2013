@@ -43,7 +43,7 @@ var levelManager = {
             });
             Crafty.scene(level.toString());
             Crafty.trigger("StopMovement");
-            Crafty.e("Player").attr({x: 3*gameBoard.tileSize, y: 3*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize});
+            Crafty.e("Player").attr({x: 3*gameBoard.tileSize, y: 3*gameBoard.tileSize, w: 32, h: 55});
         });
     },
     

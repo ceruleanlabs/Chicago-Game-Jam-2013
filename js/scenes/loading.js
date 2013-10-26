@@ -21,8 +21,12 @@ Crafty.scene("loading", function () {
         texture__fence_down_afterlife: [1, 4],
         texture__fence_left: [0, 5],
         texture__fence_left_afterlife: [1, 5],
+        texture__fence_left_afterlife: [1, 5]
     });
-    
+
+    Crafty.sprite("images/Player_sprite_sheet.png", {
+        player_standing: [0,0,32,55]
+    });
     // Loads the sprite color module from an external source
     Crafty.modules({ SpriteColor: 'RELEASE' }, function () {
         // Simulate a load time for now to make sure this works
