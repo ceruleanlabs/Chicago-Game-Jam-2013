@@ -1,19 +1,27 @@
 body {
   background-color:#4c4c4c;
-  background-image: url('/images/defaultBackgroundTile.png');
 }
 
-#gameTitle {
-  margin-left: auto;
-  margin-right: auto;
-  height: 66px;
-  width: 155px;
+h1 {
+  text-align: center;
   display: block;
+  color: #f11;
+  font-family: 'Eater', cursive;
+  font-size: 36px;
+  line-height: 36px;
+}
+
+h2 {
+  text-align: center;
+  display: block;
+  color: white;
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 24px;
+  line-height: 24px;
 }
 
 #container {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 512px;
 }
 
