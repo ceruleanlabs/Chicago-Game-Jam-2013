@@ -29,7 +29,9 @@ Crafty.c("DeathBlock", {
 
 Crafty.c("Fire", {
     init: function() {
-        this.requires("DeathBlock, Color").color("rgb(255, 0, 0)");
+        this.requires("DeathBlock, Color, SpriteAnimation, texture_fire").color("rgb(255, 0, 0)")
+        .animate("fire_animation", 0, 12, 2)
+        .animate('fire_animation', 20, -1);
         this._animation = "fire";
     }
 });

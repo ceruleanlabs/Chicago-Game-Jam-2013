@@ -37,7 +37,8 @@ Crafty.scene("loading", function () {
         texture_door_down_left_afterlife: [3, 9],
         texture_door_down_right_afterlife: [2, 0],
         texture_door_left_left_afterlife: [2, 11],
-        texture_door_left_right_afterlife: [2, 10]
+        texture_door_left_right_afterlife: [2, 10],
+        texture_fire: [0, 12]
     });
 
     Crafty.sprite("images/Player_sprite_sheet.png", {
