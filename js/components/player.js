@@ -28,6 +28,10 @@ Crafty.c("Player", {
         Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
         gameBoard.toggleState();
         this.destroy();
+    },
+
+    has_key: function() {
+        return true;
     }
 });
 

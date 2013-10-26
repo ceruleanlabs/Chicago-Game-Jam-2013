@@ -33,3 +33,24 @@ Crafty.c("Fire", {
         this._animation = "fire";
     }
 });
+
+Crafty.c("Door", {
+    open: function() {
+        levelManager.loadMap(gameBoard.getNextMap());
+    },
+
+    init: function() {
+        this.requires("2D, DOM, Color, Collision").color("rgb(30, 39, 13)");
+        this.onHit('Player', function(players) {
+            player = players[0].obj;
+            if(player.has_key())
+                this.open();
+            else
+                player.resetPosition();
+        });
+
+        this.onHit('GhostPlayer', function(players) {
+            players[0].obj.resetPosition();
+        });
+    }
+});
