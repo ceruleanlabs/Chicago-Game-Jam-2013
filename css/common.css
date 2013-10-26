@@ -45,6 +45,16 @@ h2 {
   width: 255px;
 }
 
+#status > div {
+  height: inherit;
+}
+
+#lives {
+  background: url("/images/lives.png") 0 0;
+  background-repeat: repeat-x;
+  width: 0;
+}
+
 #timer {
   height: inherit;
   width: inherit;

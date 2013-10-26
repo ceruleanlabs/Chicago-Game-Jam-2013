@@ -25,6 +25,7 @@
     <div id="container">
       <div id="cr-stage"></div>
       <div id="status" class="sidebar">
+        <div id="lives"></div>
         <div id="timer"></div>
       </div>
       <div id="game-info" class="sidebar">It's a metaphor for death.</div>

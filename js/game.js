@@ -34,6 +34,7 @@ var gameBoard = {
 
     setLives: function(num) {
         this.livesLeft = num;
+        $("#lives").width(16 * num);
     },
 
     toggleState: function() {
@@ -43,15 +44,19 @@ var gameBoard = {
     },
 
     startTimer: function(ms_seconds) {
+        $("#lives").hide();
         $("#timer").show().animate({
             width: "0"
-        }, ms_seconds , function() {
+        }, ms_seconds, "linear", function() {
             $(this).hide().width(255);
+            $("#lives").show();
         });
     },
 
     playerDied: function() {
         this.livesLeft -= 1;
+        var w = $("#lives").width();
+        $("#lives").width(w - 16);
     }
 }
 
