@@ -1,3 +1,5 @@
+/* prepend a selector with '.dead' to style it for dead mode */
+
 body {
   background-color: #4c4c4c;
   font-family: 'Annie Use Your Telescope', cursive;
@@ -7,10 +9,14 @@ body {
 h1 {
   text-align: center;
   display: block;
-  color: #f11;
   font-family: 'Eater', cursive;
   font-size: 36px;
   line-height: 36px;
+  color: gray;
+}
+
+.dead h1 {
+  color: #f11;
 }
 
 h2 {
@@ -31,9 +37,13 @@ h2 {
   width: 226px;
   height: 482px;
   margin-left: 15px;
-  background-color: red;
   vertical-align: top;
   padding: 15px;
+  background-color: gray;
+}
+
+.dead #game-info {
+  background-color: red;
 }
 
 #container > div {

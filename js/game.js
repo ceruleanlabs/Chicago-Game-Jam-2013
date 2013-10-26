@@ -34,6 +34,7 @@ var gameBoard = {
     toggleState: function() {
         Crafty.trigger("ToggleState");
         Crafty.trigger("toggle_texture");
+        $("body").toggleClass("dead");
     }
 }
 
