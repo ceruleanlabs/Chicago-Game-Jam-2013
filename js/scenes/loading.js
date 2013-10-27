@@ -44,14 +44,23 @@ Crafty.scene("loading", function () {
         texture_pressure_plate: [0, 14],
         texture_pressure_plate_afterlife: [1, 14],
         texture_pressure_plate_pressed: [0, 15],
-        texture_pressure_plate_pressed_afterlife: [1, 15]
+        texture_pressure_plate_pressed_afterlife: [1, 15],
+        texture_arrow: [0, 16]
     });
 
     Crafty.sprite("images/Player_sprite_sheet.png", {
         player_standing: [0,0,32,55],
         player_dead_standing: [32,0,32,55],
         player_dead_laying_down: [0,55,55,32],
-        player_on_fire: [0,142,32,55]
+        player_on_fire: [0,142,32,55],
+        texture_gargoyle_down: [0, 197, 32, 32],
+        texture_gargoyle_up: [32, 197, 32, 32],
+        texture_gargoyle_right: [64, 197, 32, 32],
+        texture_gargoyle_left: [96, 197, 32, 32],
+        texture_gargoyle_down_afterlife: [0, 229, 32, 32],
+        texture_gargoyle_up_afterlife: [32, 229, 32, 32],
+        texture_gargoyle_right_afterlife: [64, 229, 32, 32],
+        texture_gargoyle_left_afterlife: [96, 229, 32, 32]
     });
 
     // Audio

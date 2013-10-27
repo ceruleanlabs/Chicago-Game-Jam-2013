@@ -25,6 +25,13 @@ Crafty.c("Player", {
             }
         });
 
+        this.onHit('Arrow', function (arrows) {
+            arrows[0].obj.destroy();
+            soundManager.playSound("player_hurt", 0.5);
+            this._dead = true;
+            this.kill();
+        });
+
         that = this;
         this.onHit('Collectable', function (collectibles) {
             for (var i = 0 ; i < collectibles.length ; i++)

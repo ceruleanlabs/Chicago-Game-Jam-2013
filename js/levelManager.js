@@ -13,7 +13,11 @@ var levelManager = {
         O: function (x, y) { levelManager.items.push(Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         P: function (x, y) { levelManager.items.push(Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         S: function (x, y) { Crafty.e("Player").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: 32, h: 55, z:52}); },
-        V: function (x, y) { levelManager.items.push(Crafty.e("PressurePlate, SwitchableTexture").SwitchableTexture("texture_pressure_plate").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize, z: -2})); }
+        V: function (x, y) { levelManager.items.push(Crafty.e("PressurePlate, SwitchableTexture").SwitchableTexture("texture_pressure_plate").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize, z: -2})); },
+        T: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_down").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        Y: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_up").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        U: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        I: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); }
     },
 
     createWall: function (x, y) {

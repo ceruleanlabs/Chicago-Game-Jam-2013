@@ -25,6 +25,43 @@ Crafty.c("Fence", {
     }
 });
 
+Crafty.c("Arrow", {
+    _speed: 100,
+    _lastFrame: null,
+    _direction: [0, 0],
+    _direction_set: false,
+    init: function() {
+        this.requires("2D, DOM, Collision, texture_arrow");
+        this._lastFrame = new Date().getTime();
+
+        this.bind("EnterFrame",function(e) {
+            if(this._direction_set == false) {
+                this._direction_set = true;
+                if(this._direction[0] == -1)
+                    this.flip("X");
+                if(this._direction[1] == 1)
+                    this.rotation = 90;
+                if(this._direction[1] == -1) {
+                    this.rotation = 270;
+                }
+            }
+            
+            var now = new Date().getTime();
+            var dt = (now - (this._lastFrame || now)) / 1000; // Elapsed time in seconds
+            this._lastFrame = now;
+            this.x = this.x + (this._direction[0] * this._speed * dt);
+            this.y = this.y + (this._direction[1] * this._speed * dt);
+            if((this.x < 0 || this.x > gameBoard.getWidth()) && (this.y < 0 || this.y > gameBoard.getHeight()))
+                this.destroy();
+        });
+    },
+
+    Arrow: function(direction) {
+        this._direction = direction;
+        return this;
+    }
+});
+
 Crafty.c("DeathBlock", {
     _animation: "default",
 
@@ -43,6 +80,30 @@ Crafty.c("Fire", {
         .animate("fire_animation", 0, 12, 2)
         .animate('fire_animation', 20, -1);
         this._animation = "fire";
+    }
+});
+
+Crafty.c("Gargoyle", {
+    _arrow_speed:5000,
+    _last_shot: null,
+    init: function() {
+        this.requires("2D, DOM, solid");
+        this._last_shot = new Date().getTime();
+        
+        this.bind("EnterFrame",function(e) {
+            var now = new Date().getTime();
+            if(now - this._last_shot > this._arrow_speed) {
+                this._last_shot = now;
+                if(this.has("texture_gargoyle_right"))
+                    Crafty.e("Arrow").Arrow([1, 0]).attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+                else if(this.has("texture_gargoyle_left"))
+                    Crafty.e("Arrow").Arrow([-1, 0]).attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+                else if(this.has("texture_gargoyle_down"))
+                    Crafty.e("Arrow").Arrow([0, 1]).attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+                else if(this.has("texture_gargoyle_up"))
+                    Crafty.e("Arrow").Arrow([0, -1]).attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+            }
+        });
     }
 });
 
