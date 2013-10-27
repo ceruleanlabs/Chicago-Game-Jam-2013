@@ -34,8 +34,10 @@ Crafty.c("Player", {
 
         that = this;
         this.onHit('Collectable', function (collectibles) {
-            for (var i = 0 ; i < collectibles.length ; i++)
-                that._items.push(collectibles[i].obj.collect());
+            for (var i = 0 ; i < collectibles.length ; i++) {
+                if(!(collectibles[i].obj.has("texture_skeleton_key") || collectibles[i].obj.has("texture_skeleton_key_afterlife")))
+                    that._items.push(collectibles[i].obj.collect());
+            }
         });
 
         this.onHit('PressurePlate', function (plates) {
@@ -79,6 +81,13 @@ Crafty.c("GhostPlayer", {
         that = this;
         gameBoard.registerTimeout(setTimeout(function(){that.kill()}, this._timer));
         gameBoard.startTimer(this._timer);
+
+        this.onHit('Collectable', function (collectibles) {
+            for (var i = 0 ; i < collectibles.length ; i++) {
+                if(collectibles[i].obj.has("texture_skeleton_key") || collectibles[i].obj.has("texture_skeleton_key_afterlife"))
+                    this._items.push(collectibles[i].obj.collect());
+            }
+        });
     },
 
     kill: function() {

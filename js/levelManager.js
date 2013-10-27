@@ -10,6 +10,7 @@ var levelManager = {
         C: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fire").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         D: function (x, y) { levelManager.items.push(Crafty.e("Door").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         K: function (x, y) { levelManager.items.push(Crafty.e("Collectable, SwitchableTexture").SwitchableTexture("texture_key").Collectable("key").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        B: function (x, y) { levelManager.items.push(Crafty.e("Collectable, SwitchableTexture").SwitchableTexture("texture_skeleton_key").Collectable("key").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         O: function (x, y) { levelManager.items.push(Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         P: function (x, y) { levelManager.items.push(Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         S: function (x, y) { Crafty.e("Player").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: 32, h: 55, z:52}); },

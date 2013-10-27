@@ -41,6 +41,8 @@ Crafty.scene("loading", function () {
         texture_fire: [0, 12],
         texture_key: [0, 13],
         texture_key_afterlife: [1, 13],
+        texture_skeleton_key: [2, 13],
+        texture_skeleton_key_afterlife: [3, 13],
         texture_pressure_plate: [0, 14],
         texture_pressure_plate_afterlife: [1, 14],
         texture_pressure_plate_pressed: [0, 15],
