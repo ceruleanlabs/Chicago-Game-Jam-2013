@@ -78,10 +78,10 @@ var gameBoard = {
     },
 
     writeDesc: function(content) {
-        var contentArray = content.split("");
+        var contentArray = content.split(""),
             current = 0,
             elem = $("#game-info");
-            elem.text("");
+        elem.empty();
         setInterval(function() {
             if(current < contentArray.length) {
                 elem.text(elem.text() + contentArray[current++]);
