@@ -86,7 +86,7 @@ Crafty.scene("loading", function () {
     Crafty.modules({ SpriteColor: 'RELEASE' }, function () {
         // Simulate a load time for now to make sure this works
         setTimeout(function () {
-          levelManager.loadMap(0, null); //when everything is loaded, run the main scene
+          levelManager.loadMap(1, null); //when everything is loaded, run the main scene
         }, 500);
     });
   });
