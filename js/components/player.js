@@ -8,7 +8,6 @@ Crafty.c("Player", {
     init: function() {
         this._dead = false;
         this._items = [];
-        console.log('new player', this._items);
         this.requires("DOM, 2D, Collision, Movement, player_standing")
         .stopOnSolids();
 
@@ -28,6 +27,10 @@ Crafty.c("Player", {
             for (var i = 0 ; i < collectibles.length ; i++)
                 that._items.push(collectibles[i].obj.collect());
         });
+
+        this.onHit('PressurePlate', function (plates) {
+            plates[0].obj.press();
+        });
     },
 
     kill: function() {
@@ -41,6 +44,7 @@ Crafty.c("Player", {
         gameBoard.playerDied();
         soundManager.pauseBackgroundMusic();
         soundManager.playSound("spirit_music", 0.5);
+        Crafty.trigger("StopMovement");
         this.destroy();
     },
 
@@ -50,7 +54,6 @@ Crafty.c("Player", {
     },
 
     set_items: function(items) {
-        console.log("Setting Items", items);
         this._items = items;
     }
 });
@@ -73,6 +76,7 @@ Crafty.c("GhostPlayer", {
         new_player.set_items(this._items);
         gameBoard.toggleState();
         soundManager.unpauseBackgroundMusic();
+        Crafty.trigger("StopMovement");
         this.destroy();
     },
 
