@@ -8,8 +8,8 @@ Crafty.c("Moveable", {
     // Init the speed in px per second
     Moveable: function(cSpeed) {
         this._speed = cSpeed;
-        this._previous_x = 0;
-        this._previous_y = 0;
+        this._previous_x = null;
+        this._previous_y = null;
         return this;
     },
 
@@ -25,8 +25,15 @@ Crafty.c("Moveable", {
     },
 
     resetPosition: function() {
-        this.x = this._previous_x;
-        this.y = this._previous_y;
+        if (!this._previous_x == false && !this._previous_y == false) {
+            this.x = this._previous_x;
+            this.y = this._previous_y;
+        } else if (this.x < 0 || this.y < 0) {
+            levelManager.resetLevel();
+        } else {
+            this.x -= 1;
+            this.y -= 1;
+        }
     },
 
     // Registers a stop-movement function to be called when
@@ -114,4 +121,3 @@ Crafty.c("Movement", {
         }
     }
 });
- 
