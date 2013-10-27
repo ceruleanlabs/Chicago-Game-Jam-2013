@@ -5,17 +5,17 @@ Crafty.c("Fence", {
         this.requires("solid");
         this.bind("ToggleState", function() {
             if(this._is_solid) {
-                this.removeComponent("solid", false);
+                this.removeComponent("solid");
                 this._is_solid = false;
             } else {
-                this.addComponent("solid");
+                if(this.visible) this.addComponent("solid");
                 this._is_solid = true;
             }
         });
     },
 
     hide: function () {
-        this.removeComponent("solid", true);
+        this.removeComponent("solid");
         this.visible = false;
     },
 
