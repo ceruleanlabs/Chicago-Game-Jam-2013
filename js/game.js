@@ -67,8 +67,14 @@ var gameBoard = {
         });
     },
 
-    playerDied: function() {
+    playerDied: function(ms_seconds) {
         this.livesLeft -= 1;
+        if(this.livesLeft < 0) {
+            levelManager.resetLevel();
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 
