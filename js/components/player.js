@@ -20,7 +20,7 @@ Crafty.c("Player", {
                     this.addComponent("player_on_fire");
                     this._dead_replacement = "player_dead_fire";
                 }
-                soundManager.playSound("player_hurt", 0.5);
+                soundManager.playSound("player_hurt", 0.3);
                 this._dead = true;
                 that = this;
                 gameBoard.registerTimeout(setTimeout(function(){that.kill()},1000));
@@ -29,7 +29,7 @@ Crafty.c("Player", {
 
         this.onHit('Arrow', function (arrows) {
             arrows[0].obj.destroy();
-            soundManager.playSound("player_hurt", 0.5);
+            soundManager.playSound("player_hurt", 0.3);
             this._dead = true;
             this.kill();
         });
