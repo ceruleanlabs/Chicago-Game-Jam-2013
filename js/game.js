@@ -15,6 +15,7 @@ var gameBoard = {
     nextMap: '',
     currentMap: '',
     livesLeft: 0,
+    timerActive: false,
 
     getHeight: function () {
         return this.height * this.tileSize;
@@ -56,21 +57,26 @@ var gameBoard = {
         $("body").toggleClass("dead");
     },
 
+    hideTimer: function() {
+        $("#timer").hide().width(255);
+        $("#lives").show();
+
+        if (gameBoard.timerActive) {
+            $("#lives div:visible:last").trigger("flicker");
+        }
+    },
+
     startTimer: function(ms_seconds) {
+        gameBoard.timerActive = true;
         $("#lives").hide();
         $("#timer").show().animate({
             width: "0"
-        }, ms_seconds, "linear", function() {
-            $(this).hide().width(255);
-            $("#lives").show();
-            $("#lives div:visible:last").trigger("flicker");
-        });
+        }, ms_seconds, "linear", gameBoard.hideTimer);
     },
 
     stopTimer: function() {
-        $("#lives").show();
-        $("#timer").remove();
-        $("#status").append('<div id="timer"></div>');
+        gameBoard.timerActive = false;
+        gameBoard.hideTimer();
     },
 
     playerDied: function(ms_seconds) {
