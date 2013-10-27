@@ -17,7 +17,8 @@ var levelManager = {
         T: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_down").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         Y: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_up").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
         U: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
-        I: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); }
+        I: function (x, y) { levelManager.items.push(Crafty.e("Gargoyle, SwitchableTexture").SwitchableTexture("texture_gargoyle_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        Z: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, solid, SwitchableTexture").SwitchableTexture("texture_wall_torch").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); }
     },
 
     createWall: function (x, y) {

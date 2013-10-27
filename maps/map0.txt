@@ -1,5 +1,5 @@
 16,16
-XXXXXXXXXXXXXXXX
+XXZXXXZXXXZXXXZX
 X-----------V--X
 X-S------------X
 X--------------X
