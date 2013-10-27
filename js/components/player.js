@@ -55,7 +55,7 @@ Crafty.c("Player", {
         }
         gameBoard.toggleState();
         soundManager.pauseBackgroundMusic();
-        soundManager.playSound("spirit_music", 0.5);
+        soundManager.playSound("spirit_music", 0.1);
         Crafty.trigger("StopMovement");
         this.destroy();
     },
@@ -72,7 +72,7 @@ Crafty.c("Player", {
 
 Crafty.c("GhostPlayer", {
     _dead: false,
-    _timer: 1000 * 10, // 10 seonds
+    _timer: 1000 * 6, // 6 seconds
     _items: [],
 
     init: function() {
