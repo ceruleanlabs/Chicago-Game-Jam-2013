@@ -18,3 +18,4 @@ XXXXXXXXXXXXXXXX
 METADATA
 nextMap: 4
 lives: 3
+desc: That was terrifying! I hope death doesn't prevent me from picking up ordinary objects...

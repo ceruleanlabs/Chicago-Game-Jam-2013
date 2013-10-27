@@ -111,7 +111,7 @@ var gameBoard = {
             if(current < contentArray.length) {
                 elem.text(elem.text() + contentArray[current++]);
             }
-        }, 100);
+        }, 50);
     }
 }
 

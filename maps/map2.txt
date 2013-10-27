@@ -19,3 +19,4 @@ METADATA
 nextMap: 3
 lives: 3
 floor_type: texture_wood_floor
+desc: Is that fire? Crap. Well, we do need to get to that door so I don't see any other way...
