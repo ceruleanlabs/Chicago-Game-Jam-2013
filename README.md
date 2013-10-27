@@ -1,6 +1,6 @@
 # Chicago Game Jam 2013
 
-It's a metaphor for death.
+&lt;it's a metaphor for death&gt;
 
 **Playable URL:** [http://forkit-chigamejam2013.herokuapp.com/](http://forkit-chigamejam2013.herokuapp.com/)
 
