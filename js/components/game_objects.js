@@ -75,3 +75,27 @@ Crafty.c("Collectable", {
         return this;
     }
 });
+
+Crafty.c("PressurePlate", {
+    _linked_item: null,
+    _pressed: false,
+
+    init: function() {
+        this.requires("2D, DOM, Color").color("rgb(255, 183, 88)");
+        this.bind("EnterFrame",function(e) {
+        });
+    },
+
+    press: function() {
+        if(!this._pressed) {
+            this._pressed = true;
+            if(this._linked_item != null) {
+                this._linked_item.hide();
+            }
+        }
+    },
+
+    link_item: function(linked_item) {
+        this._linked_item = linked_item;
+    }
+});

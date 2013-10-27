@@ -10,7 +10,8 @@ var levelManager = {
         K: function (x, y) { Crafty.e("Collectable, SwitchableTexture").SwitchableTexture("texture_key").Collectable("key").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
         O: function (x, y) { Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
         P: function (x, y) { Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        S: function (x, y) { Crafty.e("Player").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: 32, h: 55, z:52}) }
+        S: function (x, y) { Crafty.e("Player").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: 32, h: 55, z:52}) },
+        V: function (x, y) { Crafty.e("PressurePlate").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}) }
     },
 
     createWall: function (x, y) {
@@ -36,7 +37,7 @@ var levelManager = {
                     map = mapData.layers[a];
                     for (var i = 0; i < map.length; i++) {
                         for (var j = 0; j < map[0].length; j++) {
-                             Crafty.e("2D, DOM, SwitchableTexture").SwitchableTexture("texture_stone_floor").attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize, z: -1});
+                            Crafty.e("2D, DOM, SwitchableTexture").SwitchableTexture("texture_stone_floor").attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize, z: -1});
                             if(levelManager.tileMap[map[i][j]])
                                 levelManager.tileMap[map[i][j]](j, i);
                         }

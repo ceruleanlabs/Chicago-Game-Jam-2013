@@ -5,10 +5,10 @@
 */
 
 Crafty.c("Player", {
-    _dead: false,
-    _items: [],
-
     init: function() {
+        this._dead = false;
+        this._items = [];
+        console.log('new player', this._items);
         this.requires("DOM, 2D, Collision, Movement, player_standing")
         .stopOnSolids();
 
@@ -23,9 +23,10 @@ Crafty.c("Player", {
             }
         });
 
+        that = this;
         this.onHit('Collectable', function (collectibles) {
             for (var i = 0 ; i < collectibles.length ; i++)
-                this._items.push(collectibles[i].obj.collect());
+                that._items.push(collectibles[i].obj.collect());
         });
     },
 
@@ -44,10 +45,12 @@ Crafty.c("Player", {
     },
 
     has_key: function() {
-        return _.contains(this._items, "key");
+        that = this;
+        return _.contains(that._items, "key");
     },
 
     set_items: function(items) {
+        console.log("Setting Items", items);
         this._items = items;
     }
 });
