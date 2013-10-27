@@ -1,0 +1,20 @@
+16,16
+XXXXXXXXXXXXXXXX
+X----C----F----X
+X-S--C--K-F----X
+X----C----F----X
+XFFFFFXXXXX----X
+X--------------X
+X----C---------X
+X--------------X
+X--------------X
+XXXXXXXFFFXXXXXX
+X--------------X
+X--------------O
+X--------------P
+X--------------X
+X--------------X
+XXXXXXXXXXXXXXXX
+METADATA
+nextMap: 0
+lives: 3
