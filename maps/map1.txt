@@ -19,3 +19,4 @@ METADATA
 nextMap: 2
 lives: 3
 floor_type: texture_wood_floor
+desc: Use the arrow keys to move, or if you prefer, your good friends WASD.

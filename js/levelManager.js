@@ -61,6 +61,8 @@ var levelManager = {
                 }
 
                 levelManager.linkMetaDataItems();
+                console.log(levelManager.metadata.desc);
+                if (levelManager.metadata.desc) gameBoard.writeDesc(levelManager.metadata.desc);
                 Crafty.trigger("StopMovement");
                 levelManager.door_opened = false;
                 if(loadComplete) loadComplete();

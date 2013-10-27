@@ -20,3 +20,4 @@ nextMap: 1
 lives: 3
 link_items: [[[12, 1], [4, 8]], [[12, 1], [4, 9]]]
 floor_type: texture_wood_floor
+desc: And so we go.

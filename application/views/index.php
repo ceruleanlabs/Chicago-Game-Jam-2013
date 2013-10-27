@@ -27,7 +27,7 @@
         <div id="lives"></div>
         <div id="timer"></div>
       </div>
-      <div id="game-info" class="sidebar">It's a metaphor for death.</div>
+      <div id="game-info" class="sidebar"></div>
     </div>
 </body>
 </html>
