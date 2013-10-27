@@ -20,3 +20,4 @@ nextMap: 7
 lives: 1
 link_items: [[[13, 5], [11, 12]], [[13, 5], [11, 13]]]
 floor_type: texture_wood_floor
+desc: That skull key looks cursed! I'd better not pick it up when in my human form...

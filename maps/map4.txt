@@ -18,3 +18,4 @@ XXXXXXXXXXXXXXXX
 METADATA
 nextMap: 5
 lives: 3
+desc: Gargoyles?!?! Just my luck!

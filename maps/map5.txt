@@ -19,3 +19,4 @@ METADATA
 nextMap: 6
 lives: 1
 link_items: [[[6, 1], [11, 9]], [[6, 2], [12, 9]]]
+desc: Those pressure plates look like they can trigger different items in the environment. If only I could use something to hold them down...
