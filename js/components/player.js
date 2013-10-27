@@ -5,11 +5,12 @@
 */
 
 Crafty.c("Player", {
+    _dead_replacement: "player_dead_laying_down",
     init: function() {
         this._dead = false;
         this._items = [];
         this.requires("DOM, 2D, Collision, Movement, player_standing")
-        .stopOnSolids();
+        .stopOnSolids().collision(new Crafty.polygon([0,15], [32,15], [32,55], [0,55]));
 
         this.onHit('DeathBlock', function (deathblocks) {
             if(!this._dead) {
@@ -17,6 +18,7 @@ Crafty.c("Player", {
                 if(deathblocks[0].obj.get_animation() == "fire"){
                     this.removeComponent("player_standing");
                     this.addComponent("player_on_fire");
+                    this._dead_replacement = "player_dead_fire";
                 }
                 soundManager.playSound("player_hurt", 0.5);
                 this._dead = true;
@@ -47,7 +49,7 @@ Crafty.c("Player", {
 
     kill: function() {
         if(gameBoard.playerDied() == false) return;
-        var dead_body = Crafty.e("2D, DOM, Color, player_dead_laying_down").attr({x: this.x, y: this.y, w: this.h, h: this.w, z: -1});
+        var dead_body = Crafty.e("2D, DOM, Color, " + this._dead_replacement).attr({x: this.x, y: this.y, w: this.h, h: this.w, z: -1});
         var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
         if(Math.random() < 0.5) {

@@ -58,6 +58,7 @@ Crafty.scene("loading", function () {
         player_standing: [0,0,32,55],
         player_dead_standing: [32,0,32,55],
         player_dead_laying_down: [0,55,55,32],
+        player_dead_fire: [55,55,55,32],
         player_on_fire: [0,142,32,55],
         texture_gargoyle_down: [0, 197, 32, 32],
         texture_gargoyle_up: [32, 197, 32, 32],

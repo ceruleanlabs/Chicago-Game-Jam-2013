@@ -31,7 +31,8 @@ Crafty.c("Arrow", {
     _direction: [0, 0],
     _direction_set: false,
     init: function() {
-        this.requires("2D, DOM, Collision, texture_arrow");
+        this.requires("2D, DOM, Collision, texture_arrow")
+        .collision(new Crafty.polygon([0,10], [32,10], [32,22], [0,22]));
         this._lastFrame = new Date().getTime();
 
         this.bind("EnterFrame",function(e) {
@@ -84,11 +85,12 @@ Crafty.c("Fire", {
 });
 
 Crafty.c("Gargoyle", {
-    _arrow_speed:4000,
+    _arrow_speed:3000,
     _last_shot: null,
     init: function() {
         this.requires("2D, DOM, solid");
         this._last_shot = new Date().getTime();
+        this._arrow_speed = 2500 + Math.random() * 1000
         
         this.bind("EnterFrame",function(e) {
             var now = new Date().getTime();
