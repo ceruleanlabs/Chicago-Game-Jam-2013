@@ -1,8 +1,8 @@
 16,16
 XXXXXXXXXXXXXXXX
-X----C----F----X
-X-S--C--K-F----X
-X----C----F----X
+X----C----G----X
+X-S--C--K-G----X
+X----C----G----X
 XFFFFFXXXXX----X
 X--------------X
 X----C---------X
@@ -16,5 +16,5 @@ X--------------X
 X--------------X
 XXXXXXXXXXXXXXXX
 METADATA
-nextMap: 0
+nextMap: 3
 lives: 3
