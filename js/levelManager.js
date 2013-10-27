@@ -1,5 +1,6 @@
 var levelManager = {
     items: [],
+    metadata: null,
     tileMap: {
         X: function (x, y) { levelManager.createWall(x, y); },
         F: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_up").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
@@ -21,15 +22,17 @@ var levelManager = {
 
     loadMap: function (level, loadComplete) {
         var map = null;
-        this.items = [];
+        var that = this;
         $.get('map/load/'+level, function(data) {
             Crafty.scene(level.toString(), function () {
+                that.items = [];
                 mapData = jQuery.parseJSON(data);
                 var map = null;
                 // Set the background to light gray
                 Crafty.background("#9F9F9F");
                 // get next map
                 var nextMap = mapData.metadata.nextMap;
+                levelManager.metadata = mapData.metadata;
                 gameBoard.setNextMap(nextMap);
                 gameBoard.currentMap = level;
                 gameBoard.setLives(mapData.metadata.lives);
@@ -46,12 +49,8 @@ var levelManager = {
                     }
                 }
 
-                if(mapData.metadata.link_items != null) {
-                    for (var i=0; i < mapData.metadata.link_items.length; i++) {
-                        link_set = mapData.metadata.link_items[i];
-                        levelManager.linkItems(link_set[0][0], link_set[0][1], link_set[1][0], link_set[1][1]);
-                    }
-                }
+                levelManager.linkMetaDataItems();
+                Crafty.trigger("StopMovement");
                 if(loadComplete) loadComplete();
             });
             Crafty.scene(level.toString());
@@ -62,6 +61,7 @@ var levelManager = {
     
     resetLevel: function () {
       Crafty.scene(gameBoard.currentMap);
+      levelManager.linkMetaDataItems();
     },
 
     findItemAtCoordinates: function (x, y)  {
@@ -76,6 +76,15 @@ var levelManager = {
             item1.link_item(item2);
         } else {
             console.log('Cant link items', x1, y1, x2, y2);
+        }
+    },
+
+    linkMetaDataItems: function() {
+        if(levelManager.metadata.link_items != null) {
+            for (var i=0; i < levelManager.metadata.link_items.length; i++) {
+                link_set = levelManager.metadata.link_items[i];
+                levelManager.linkItems(link_set[0][0], link_set[0][1], link_set[1][0], link_set[1][1]);
+            }
         }
     }
 }
