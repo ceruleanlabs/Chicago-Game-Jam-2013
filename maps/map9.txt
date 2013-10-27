@@ -17,6 +17,6 @@ CCC--CC--CC-C--C
 ----------------
 METADATA
 neCtMap: 9
-lives: 1
+lives: 12
 desc: Great Job, Our hero is free!
 floor_type: texture_wood_floor
