@@ -78,6 +78,7 @@ var gameBoard = {
     stopTimer: function() {
         gameBoard.timerActive = false;
         gameBoard.hideTimer();
+        $("body").removeClass("dead");
         for (var i = 0; i < this.timeouts.length; i++)
         {
             clearTimeout(this.timeouts[i]);
