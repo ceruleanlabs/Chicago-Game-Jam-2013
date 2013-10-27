@@ -109,6 +109,9 @@ Crafty.c("Gargoyle", {
 
 Crafty.c("Door", {
     open: function() {
+        if(levelManager.door_opened) return;
+
+        levelManager.door_opened = true;
         soundManager.playSound("switch_on", 1);
         levelManager.loadMap(gameBoard.getNextMap());
     },

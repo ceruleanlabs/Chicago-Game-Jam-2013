@@ -1,6 +1,7 @@
 var levelManager = {
     items: [],
     metadata: null,
+    door_opened: false,
     tileMap: {
         X: function (x, y) { levelManager.createWall(x, y); },
         F: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_up").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
@@ -61,6 +62,7 @@ var levelManager = {
 
                 levelManager.linkMetaDataItems();
                 Crafty.trigger("StopMovement");
+                levelManager.door_opened = false;
                 if(loadComplete) loadComplete();
             });
             Crafty.scene(level.toString());
