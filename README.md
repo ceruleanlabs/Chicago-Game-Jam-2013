@@ -2,7 +2,7 @@
 
 It's a metaphor for death.
 
-** Playable URL:** [http://forkit-chigamejam2013.herokuapp.com/](http://forkit-chigamejam2013.herokuapp.com/)
+**Playable URL:** [http://forkit-chigamejam2013.herokuapp.com/](http://forkit-chigamejam2013.herokuapp.com/)
 
 **Created By:** This game was made by Thomas Jacobs, Kevin Folk, Tom Berg and Dan Bergren
 
