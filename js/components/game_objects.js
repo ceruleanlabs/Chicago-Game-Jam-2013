@@ -96,6 +96,8 @@ Crafty.c("PressurePlate", {
             if(this._pressed) {
                 if(this.hit("Player") == false) {
                     this._pressed = false;
+                    this.removeComponent("texture_pressure_plate_pressed");
+                    this.addComponent("texture_pressure_plate");
                     for(var i = 0; i < this._linked_items.length; i++) {
                         this._linked_items[i].unhide();
                     }
@@ -107,6 +109,8 @@ Crafty.c("PressurePlate", {
     press: function() {
         if(!this._pressed) {
             this._pressed = true;
+            this.removeComponent("texture_pressure_plate");
+            this.addComponent("texture_pressure_plate_pressed");
             for(var i = 0; i < this._linked_items.length; i++) {
                 this._linked_items[i].hide();
             }

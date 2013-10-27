@@ -1,6 +1,6 @@
 16,16
 XXXXXXXXXXXXXXXX
-X-------V------X
+X-----------V--X
 X-S------------X
 X--------------X
 X-----------C--X
@@ -18,4 +18,4 @@ XXXXXXXXXXXXXXXX
 METADATA
 nextMap: 1
 lives: 3
-link_items: [[[8, 1], [4, 8]], [[8, 1], [4, 9]]]
+link_items: [[[12, 1], [4, 8]], [[12, 1], [4, 9]]]

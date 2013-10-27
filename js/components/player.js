@@ -14,7 +14,10 @@ Crafty.c("Player", {
         this.onHit('DeathBlock', function (deathblocks) {
             if(!this._dead) {
                 // Play animation
-                console.log('Play Animation', deathblocks[0].obj.get_animation());
+                if(deathblocks[0].obj.get_animation() == "fire"){
+                    this.removeComponent("player_standing");
+                    this.addComponent("player_on_fire");
+                }
                 soundManager.playSound("player_hurt", 0.5);
                 this._dead = true;
                 that = this;
