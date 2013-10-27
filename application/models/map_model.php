@@ -40,7 +40,11 @@ class Map_model extends CI_Model {
                 $line = chop(fgets($f, 4096));
                 if (strpos($line, ':') !== false) {
                     $explosion = explode(':', $line, 2);
-                    $lineTemp = '"'.$explosion[0].'": "'.trim($explosion[1]).'",';
+                    if($explosion[0] == "link_items") {
+                        $lineTemp = '"'.$explosion[0].'": '.trim($explosion[1]).',';
+                    } else {
+                        $lineTemp = '"'.$explosion[0].'": "'.trim($explosion[1]).'",';
+                    }
                     $object .= $lineTemp;
                 }
             }

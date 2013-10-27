@@ -12,6 +12,16 @@ Crafty.c("Fence", {
                 this._is_solid = true;
             }
         });
+    },
+
+    hide: function () {
+        this.removeComponent("solid", true);
+        this.visible = false;
+    },
+
+    unhide: function() {
+        this.addComponent("solid");
+        this.visible = true;
     }
 });
 
@@ -77,25 +87,33 @@ Crafty.c("Collectable", {
 });
 
 Crafty.c("PressurePlate", {
-    _linked_item: null,
+    _linked_items: [],
     _pressed: false,
 
     init: function() {
-        this.requires("2D, DOM, Color").color("rgb(255, 183, 88)");
+        this.requires("2D, DOM, Color, Collision").color("rgb(255, 183, 88)");
         this.bind("EnterFrame",function(e) {
+            if(this._pressed) {
+                if(this.hit("Player") == false) {
+                    this._pressed = false;
+                    for(var i = 0; i < this._linked_items.length; i++) {
+                        this._linked_items[i].unhide();
+                    }
+                }
+            }
         });
     },
 
     press: function() {
         if(!this._pressed) {
             this._pressed = true;
-            if(this._linked_item != null) {
-                this._linked_item.hide();
+            for(var i = 0; i < this._linked_items.length; i++) {
+                this._linked_items[i].hide();
             }
         }
     },
 
     link_item: function(linked_item) {
-        this._linked_item = linked_item;
+        this._linked_items.push(linked_item);
     }
 });

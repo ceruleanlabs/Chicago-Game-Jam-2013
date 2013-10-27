@@ -18,3 +18,4 @@ XXXXXXXXXXXXXXXX
 METADATA
 nextMap: 1
 lives: 3
+link_items: [[[8, 1], [4, 8]], [[8, 1], [4, 9]]]

@@ -1,17 +1,18 @@
 var levelManager = {
+    items: [],
     tileMap: {
         X: function (x, y) { levelManager.createWall(x, y); },
-        F: function (x, y) { Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_up").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        G: function (x, y) { Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        H: function (x, y) { Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        J: function (x, y) { Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_down").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        C: function (x, y) { Crafty.e("2D, DOM, Fire").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        D: function (x, y) { Crafty.e("Door").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        K: function (x, y) { Crafty.e("Collectable, SwitchableTexture").SwitchableTexture("texture_key").Collectable("key").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        O: function (x, y) { Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        P: function (x, y) { Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}); },
-        S: function (x, y) { Crafty.e("Player").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: 32, h: 55, z:52}) },
-        V: function (x, y) { Crafty.e("PressurePlate").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize}) }
+        F: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_up").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        G: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        H: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        J: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fence, SwitchableTexture").SwitchableTexture("texture_fence_down").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        C: function (x, y) { levelManager.items.push(Crafty.e("2D, DOM, Fire").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        D: function (x, y) { levelManager.items.push(Crafty.e("Door").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        K: function (x, y) { levelManager.items.push(Crafty.e("Collectable, SwitchableTexture").SwitchableTexture("texture_key").Collectable("key").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        O: function (x, y) { levelManager.items.push(Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_left").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        P: function (x, y) { levelManager.items.push(Crafty.e("Door, SwitchableTexture").SwitchableTexture("texture_door_right_right").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); },
+        S: function (x, y) { Crafty.e("Player").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: 32, h: 55, z:52}); },
+        V: function (x, y) { levelManager.items.push(Crafty.e("PressurePlate").attr({x: x*gameBoard.tileSize, y: y*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize})); }
     },
 
     createWall: function (x, y) {
@@ -20,6 +21,7 @@ var levelManager = {
 
     loadMap: function (level, loadComplete) {
         var map = null;
+        this.items = [];
         $.get('map/load/'+level, function(data) {
             Crafty.scene(level.toString(), function () {
                 mapData = jQuery.parseJSON(data);
@@ -43,6 +45,13 @@ var levelManager = {
                         }
                     }
                 }
+
+                if(mapData.metadata.link_items != null) {
+                    for (var i=0; i < mapData.metadata.link_items.length; i++) {
+                        link_set = mapData.metadata.link_items[i];
+                        levelManager.linkItems(link_set[0][0], link_set[0][1], link_set[1][0], link_set[1][1]);
+                    }
+                }
                 if(loadComplete) loadComplete();
             });
             Crafty.scene(level.toString());
@@ -53,6 +62,21 @@ var levelManager = {
     
     resetLevel: function () {
       Crafty.scene(gameBoard.currentMap);
+    },
+
+    findItemAtCoordinates: function (x, y)  {
+        return _.find(this.items, function(item){ return (Math.floor((item.x / gameBoard.tileSize)) == x) && (Math.floor((item.y / gameBoard.tileSize)) == y) });
+    },
+
+    linkItems: function(x1, y1, x2, y2) {
+        item1 = this.findItemAtCoordinates(x1, y1);
+        item2 = this.findItemAtCoordinates(x2, y2);
+
+        if(item1 != null && item2 != null) {
+            item1.link_item(item2);
+        } else {
+            console.log('Cant link items', x1, y1, x2, y2);
+        }
     }
 }
 
