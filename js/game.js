@@ -67,6 +67,12 @@ var gameBoard = {
         });
     },
 
+    stopTimer: function() {
+        $("#lives").show();
+        $("#timer").remove();
+        $("#status").append('<div id="timer"></div>');
+    },
+
     playerDied: function(ms_seconds) {
         this.livesLeft -= 1;
         if(this.livesLeft < 0) {
