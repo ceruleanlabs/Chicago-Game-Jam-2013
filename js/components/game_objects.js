@@ -84,7 +84,7 @@ Crafty.c("Fire", {
 });
 
 Crafty.c("Gargoyle", {
-    _arrow_speed:5000,
+    _arrow_speed:4000,
     _last_shot: null,
     init: function() {
         this.requires("2D, DOM, solid");
