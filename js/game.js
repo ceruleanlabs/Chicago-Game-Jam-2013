@@ -17,6 +17,7 @@ var gameBoard = {
     livesLeft: 0,
     timerActive: false,
     timeouts: [],
+    activeDesc: null,
 
     getHeight: function () {
         return this.height * this.tileSize;
@@ -103,11 +104,12 @@ var gameBoard = {
     },
 
     writeDesc: function(content) {
+        clearInterval(gameBoard.activeDesc);
         var contentArray = content.split(""),
             current = 0,
             elem = $("#game-info");
         elem.empty();
-        setInterval(function() {
+        gameBoard.activeDesc = setInterval(function() {
             if(current < contentArray.length) {
                 elem.text(elem.text() + contentArray[current++]);
             }
