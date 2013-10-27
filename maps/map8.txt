@@ -1,0 +1,22 @@
+16,16
+XXXXXXXXXXXXXXXX
+Z-T-ZXXXXXXTTXXX
+X---X---------XX
+Z-S-Z---------XX
+X---X---XX----XX
+Z---Z---IX-VV-XX
+X---X---XX----XX
+Z---Z---IXFFFFXX
+X---X--XXX----XX
+Z---Z--ZXC----CX
+X---X--XXC-B--CX
+Z---Z--ZXC----CX
+X---X--XXXXXXXXX
+XU------G------O
+XU------G------P
+XXXXXXXXXXXXXXXX
+METADATA
+nextMap: 8
+lives: 1
+link_items: [[[11, 5], [8, 13]], [[11, 5], [8, 14]]]
+floor_type: texture_wood_floor
