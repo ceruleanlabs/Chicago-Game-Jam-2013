@@ -94,7 +94,7 @@ Crafty.c("PressurePlate", {
         this.requires("2D, DOM, Color, Collision").color("rgb(255, 183, 88)");
         this.bind("EnterFrame",function(e) {
             if(this._pressed) {
-                if(this.hit("Player") == false) {
+                if(this.hit("Player") == false && this.hit("player_dead_laying_down") == false) {
                     this._pressed = false;
                     this.removeComponent("texture_pressure_plate_pressed");
                     this.addComponent("texture_pressure_plate");
