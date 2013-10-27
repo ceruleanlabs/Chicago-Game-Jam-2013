@@ -32,6 +32,7 @@ var levelManager = {
         gameBoard.stopTimer();
         $.get('map/load/'+level, function(data) {
             Crafty.scene(level.toString(), function () {
+                var floor_type = "texture_stone_floor";
                 that.items = [];
                 mapData = jQuery.parseJSON(data);
                 var map = null;
@@ -43,13 +44,15 @@ var levelManager = {
                 gameBoard.setNextMap(nextMap);
                 gameBoard.currentMap = level;
                 gameBoard.setLives(mapData.metadata.lives);
+                if(mapData.metadata.floor_type != null)
+                    floor_type = mapData.metadata.floor_type;
                 console.log("set", nextMap);
               
                 for (var a = 0; a < mapData.layers.length; a++) {
                     map = mapData.layers[a];
                     for (var i = 0; i < map.length; i++) {
                         for (var j = 0; j < map[0].length; j++) {
-                            Crafty.e("2D, DOM, SwitchableTexture").SwitchableTexture("texture_stone_floor").attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize, z: -2});
+                            Crafty.e("2D, DOM, SwitchableTexture").SwitchableTexture(floor_type).attr({x: j*gameBoard.tileSize, y: i*gameBoard.tileSize, w: gameBoard.tileSize, h: gameBoard.tileSize, z: -2});
                             if(levelManager.tileMap[map[i][j]])
                                 levelManager.tileMap[map[i][j]](j, i);
                         }

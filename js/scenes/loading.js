@@ -49,7 +49,9 @@ Crafty.scene("loading", function () {
         texture_pressure_plate_pressed_afterlife: [1, 15],
         texture_arrow: [0, 16],
         texture_wall_torch: [2, 1],
-        texture_wall_torch_afterlife: [3, 1]
+        texture_wall_torch_afterlife: [3, 1],
+        texture_wood_floor: [2, 0],
+        texture_wood_floor_afterlife: [3, 0]
     });
 
     Crafty.sprite("images/Player_sprite_sheet.png", {

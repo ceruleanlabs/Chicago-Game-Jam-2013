@@ -99,7 +99,7 @@ Crafty.c("Gargoyle", {
                 else if(this.has("texture_gargoyle_left"))
                     Crafty.e("Arrow").Arrow([-1, 0]).attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
                 else if(this.has("texture_gargoyle_down"))
-                    Crafty.e("Arrow").Arrow([0, 1]).attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
+                    Crafty.e("Arrow").Arrow([0, 1]).attr({x: this.x + 32, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
                 else if(this.has("texture_gargoyle_up"))
                     Crafty.e("Arrow").Arrow([0, -1]).attr({x: this.x, y: this.y, w: gameBoard.tileSize, h: gameBoard.tileSize});
             }
