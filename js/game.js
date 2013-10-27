@@ -16,6 +16,7 @@ var gameBoard = {
     currentMap: '',
     livesLeft: 0,
     timerActive: false,
+    timeouts: [],
 
     getHeight: function () {
         return this.height * this.tileSize;
@@ -77,6 +78,14 @@ var gameBoard = {
     stopTimer: function() {
         gameBoard.timerActive = false;
         gameBoard.hideTimer();
+        for (var i = 0; i < this.timeouts.length; i++)
+        {
+            clearTimeout(this.timeouts[i]);
+        }
+    },
+
+    registerTimeout: function(tm) {
+        this.timeouts.push(tm);
     },
 
     playerDied: function(ms_seconds) {

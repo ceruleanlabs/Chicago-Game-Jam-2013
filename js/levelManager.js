@@ -28,6 +28,7 @@ var levelManager = {
     loadMap: function (level, loadComplete) {
         var map = null;
         var that = this;
+        gameBoard.stopTimer();
         $.get('map/load/'+level, function(data) {
             Crafty.scene(level.toString(), function () {
                 that.items = [];

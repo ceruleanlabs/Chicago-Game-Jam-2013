@@ -124,7 +124,11 @@ Crafty.c("Door", {
         });
 
         this.onHit('GhostPlayer', function(players) {
-            players[0].obj.resetPosition();
+            player = players[0].obj;
+            if(player.has_key())
+                this.open();
+            else
+                player.resetPosition();
         });
     }
 });

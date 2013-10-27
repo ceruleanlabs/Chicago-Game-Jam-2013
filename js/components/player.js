@@ -21,7 +21,7 @@ Crafty.c("Player", {
                 soundManager.playSound("player_hurt", 0.5);
                 this._dead = true;
                 that = this;
-                setTimeout(function(){that.kill()},1000);
+                gameBoard.registerTimeout(setTimeout(function(){that.kill()},1000));
             }
         });
 
@@ -77,7 +77,7 @@ Crafty.c("GhostPlayer", {
         this.requires("DOM, 2D, Collision, Movement, player_dead_standing")
         .stopOnSolids();
         that = this;
-        setTimeout(function(){that.kill()}, this._timer);
+        gameBoard.registerTimeout(setTimeout(function(){that.kill()}, this._timer));
         gameBoard.startTimer(this._timer);
     },
 
@@ -92,5 +92,10 @@ Crafty.c("GhostPlayer", {
 
     set_items: function(items) {
         this._items = items;
-    }
+    },
+
+    has_key: function() {
+        that = this;
+        return _.contains(that._items, "key");
+    },
 });
