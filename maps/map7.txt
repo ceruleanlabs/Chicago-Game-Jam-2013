@@ -1,0 +1,23 @@
+16,16
+XXXXXXXXXXXXXTTX
+X----XXX-------X
+X-B--XXX-------X
+X----XXX--XXX--X
+XXX--XXU--XXX--X
+XXXCCXXU--XXX--X
+XXXFFXXX--XXX--Z
+X---------XXC--O
+U--S------XXC--P
+X---------XXX--Z
+XXX--XXXYXXXXXXX
+XXX--XXXXXXXXXXX
+XXX--XXXXXXXXXXX
+XXU---------V-ZX
+XXU---------V-ZX
+XXXXXXXXXXXXXXXX
+METADATA
+nextMap: 8
+lives: 2
+link_items: [[[12, 13], [3, 6]], [[12, 13], [4, 6]]]
+floor_type: texture_wood_floor
+desc: That skull key looks cursed! I'd better not pick it up when in my human form...

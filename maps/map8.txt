@@ -16,7 +16,7 @@ XU------G------O
 XU------G------P
 XXXXXXXXXXXXXXXX
 METADATA
-nextMap: 8
+nextMap: 9
 lives: 1
 link_items: [[[11, 5], [8, 13]], [[11, 5], [8, 14]]]
 floor_type: texture_wood_floor
