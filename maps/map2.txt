@@ -18,3 +18,4 @@ XXXXXXXXXXXXXXXX
 METADATA
 nextMap: 3
 lives: 3
+floor_type: texture_wood_floor
