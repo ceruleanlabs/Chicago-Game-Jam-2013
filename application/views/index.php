@@ -31,6 +31,8 @@
       <div id="reset" class="sidebar">RESET</div>
     </div>
 
+  Created by TJ Jacobs, Kevin Folk, <a href="https://twitter.com/wrigleykid">Tom Berg</a> and <a href="https://twitter.com/heymrbass">Dan Bergren</a>.
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
