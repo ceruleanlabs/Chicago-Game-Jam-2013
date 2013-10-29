@@ -32,6 +32,7 @@
     </div>
 
   Created by TJ Jacobs, Kevin Folk, <a href="https://twitter.com/wrigleykid">Tom Berg</a> and <a href="https://twitter.com/heymrbass">Dan Bergren</a>.
+  For best results, use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>.
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
