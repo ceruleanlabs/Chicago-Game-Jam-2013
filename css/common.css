@@ -65,7 +65,7 @@ h2 {
 }
 
 #game-info {
-  height: 445px;
+  height: 378px;
   margin-top: 15px;
   vertical-align: top;
   padding: 15px;
@@ -74,6 +74,24 @@ h2 {
 
 .dead #game-info {
   background-color: red;
+}
+
+#reset {
+  margin-top: 15px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  padding: 15px;
+}
+
+#reset:hover {
+  color: red;
+  cursor: pointer;
+}
+
+#reset:active {
+  color: white;
 }
 
 #container > div {

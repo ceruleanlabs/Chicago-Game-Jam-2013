@@ -28,6 +28,7 @@
         <div id="timer"></div>
       </div>
       <div id="game-info" class="sidebar"></div>
+      <div id="reset" class="sidebar">RESET</div>
     </div>
 
 <script>

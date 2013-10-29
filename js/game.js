@@ -148,4 +148,8 @@ $(document).ready(function () {
   window.onkeydown = function(e) { 
     return !($.inArray(e.keyCode, [33,34,35,36,37,38,39,40,72]));
   };
+
+  $("#reset").click(function() {
+    levelManager.resetLevel();
+  });
 });
