@@ -84,7 +84,7 @@ Crafty.scene("loading", function () {
     });
 
     // Loads the sprite color module from an external source
-    Crafty.modules({ SpriteColor: 'RELEASE' }, function () {
+    Crafty.modules({ 'https://github.com/forkit/CraftySpriteColor/blob/master/src/SpriteColor.js': 'RELEASE' }, function () {
         // Simulate a load time for now to make sure this works
         setTimeout(function () {
           levelManager.loadMap(1, null); //when everything is loaded, run the main scene
