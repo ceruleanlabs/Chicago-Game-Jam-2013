@@ -9545,7 +9545,7 @@ Crafty.extend({
 		if (arguments.length === 2 && typeof modulesRepository === "object") {
 			oncomplete = moduleMap;
 			moduleMap = modulesRepository;
-			modulesRepository = 'http://cdn.craftycomponents.com';
+			modulesRepository = 'http://crafty-components.jit.su';
 		}
 
 		/*!
