@@ -36,7 +36,7 @@ Crafty.c("Arrow", {
         this._lastFrame = new Date().getTime();
 
         this.bind("EnterFrame",function(e) {
-            if(this._direction_set == false) {
+            if(this._direction_set === false) {
                 this._direction_set = true;
                 if(this._direction[0] == -1)
                     this.flip("X");
@@ -46,7 +46,7 @@ Crafty.c("Arrow", {
                     this.rotation = 270;
                 }
             }
-            
+
             var now = new Date().getTime();
             var dt = (now - (this._lastFrame || now)) / 1000; // Elapsed time in seconds
             this._lastFrame = now;
@@ -90,8 +90,8 @@ Crafty.c("Gargoyle", {
     init: function() {
         this.requires("2D, DOM, solid");
         this._last_shot = new Date().getTime();
-        this._arrow_speed = 2500 + Math.random() * 1000
-        
+        this._arrow_speed = 2500 + Math.random() * 1000;
+
         this.bind("EnterFrame",function(e) {
             var now = new Date().getTime();
             if(now - this._last_shot > this._arrow_speed) {
@@ -164,7 +164,7 @@ Crafty.c("PressurePlate", {
         this.requires("2D, DOM, Color, Collision").color("rgb(255, 183, 88)");
         this.bind("EnterFrame",function(e) {
             if(this._pressed) {
-                if(this.hit("Player") == false && this.hit("player_dead_laying_down") == false) {
+                if(this.hit("Player") === false && this.hit("player_dead_laying_down") === false) {
                     this._pressed = false;
                     soundManager.playSound("switch_off", 0.8);
                     this.removeComponent("texture_pressure_plate_pressed");

@@ -21,7 +21,6 @@ Crafty.scene("loading", function () {
         texture_fence_down_afterlife: [1, 4],
         texture_fence_left: [0, 5],
         texture_fence_left_afterlife: [1, 5],
-        texture_fence_left_afterlife: [1, 5],
         texture_door_up_left: [0, 6],
         texture_door_up_right: [1, 6],
         texture_door_right_left: [0, 7],

@@ -1,6 +1,6 @@
 /**
 * This file contains the player movement component.
-*  
+*
 * Author: Fork It, We'll do it live!
 */
 
@@ -14,9 +14,9 @@ Crafty.c("Moveable", {
     },
 
     init: function() {
-        this._speed = 3 || this._speed; 
+        this._speed = 3 || this._speed;
     },
-  
+
     EntityMove: function (direction) {
         this._previous_x = this.x;
         this._previous_y = this.y;
@@ -25,7 +25,7 @@ Crafty.c("Moveable", {
     },
 
     resetPosition: function() {
-        if (!this._previous_x == false && !this._previous_y == false) {
+        if (this._previous_x !== false && this._previous_y !== false) {
             this.x = this._previous_x;
             this.y = this._previous_y;
         } else if (this.x < 0 || this.y < 0) {
@@ -40,7 +40,7 @@ Crafty.c("Moveable", {
     // this entity hits an entity with the "Solid" component
     stopOnSolids: function() {
         this.onHit('solid', this.resetPosition);
-     
+
         return this;
     }
 });
@@ -78,7 +78,7 @@ Crafty.c("Movement", {
                 this._directions.push(direction);
                 // Tell the player to face a new direction
                 this.trigger('NewDirection',direction);
-            } 
+            }
         });
 
         // Reenable movement if space is up
@@ -110,7 +110,7 @@ Crafty.c("Movement", {
             this._directions = [];
         });
     },
-  
+
     applyTrigger: function(action) {
         for(var k in this._keys) {
             if(this.isDown(k)) {

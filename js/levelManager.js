@@ -45,10 +45,10 @@ var levelManager = {
                 gameBoard.setNextMap(nextMap);
                 gameBoard.currentMap = level;
                 gameBoard.setLives(mapData.metadata.lives);
-                if(mapData.metadata.floor_type != null)
+                if(mapData.metadata.floor_type !== null)
                     floor_type = mapData.metadata.floor_type;
                 console.log("set", nextMap);
-              
+
                 for (var a = 0; a < mapData.layers.length; a++) {
                     map = mapData.layers[a];
                     for (var i = 0; i < map.length; i++) {
@@ -72,21 +72,23 @@ var levelManager = {
             soundManager.startBackgroundMusic();
         });
     },
-    
+
     resetLevel: function () {
       Crafty.scene(gameBoard.currentMap);
       levelManager.linkMetaDataItems();
     },
 
     findItemAtCoordinates: function (x, y)  {
-        return _.find(this.items, function(item){ return (Math.floor((item.x / gameBoard.tileSize)) == x) && (Math.floor((item.y / gameBoard.tileSize)) == y) });
+        return _.find(this.items, function(item){
+          return (Math.floor((item.x / gameBoard.tileSize)) == x) && (Math.floor((item.y / gameBoard.tileSize)) == y);
+        });
     },
 
     linkItems: function(x1, y1, x2, y2) {
         item1 = this.findItemAtCoordinates(x1, y1);
         item2 = this.findItemAtCoordinates(x2, y2);
 
-        if(item1 != null && item2 != null) {
+        if(item1 !== null && item2 !== null) {
             item1.link_item(item2);
         } else {
             console.log('Cant link items', x1, y1, x2, y2);
@@ -94,12 +96,12 @@ var levelManager = {
     },
 
     linkMetaDataItems: function() {
-        if(levelManager.metadata.link_items != null) {
+        if(levelManager.metadata.link_items !== null) {
             for (var i=0; i < levelManager.metadata.link_items.length; i++) {
                 link_set = levelManager.metadata.link_items[i];
                 levelManager.linkItems(link_set[0][0], link_set[0][1], link_set[1][0], link_set[1][1]);
             }
         }
     }
-}
+};
 
