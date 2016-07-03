@@ -8,6 +8,17 @@
 
 **Technologies Used:** [Crafty.js](http://craftyjs.com/), [CodeIgniter](http://ellislab.com/codeigniter)
 
+## Prereqs
+
+- [Node](https://nodejs.org/en/)
+- [nodenv](https://github.com/nodenv/nodenv)
+  - `$ nodenv install`
+
+## Setup
+
+    $ nodenv install
+    $ npm install
+
 ## Development
 
     $ gulp server
