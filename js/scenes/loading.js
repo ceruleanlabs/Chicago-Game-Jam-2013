@@ -83,7 +83,7 @@ Crafty.scene("loading", function () {
     });
 
     // Loads the sprite color module from an external source
-    Crafty.modules({ 'http://forkit-chigamejam2013.herokuapp.com/js/utilities/SpriteColor.js': 'RELEASE' }, function () {
+    Crafty.modules({ 'https://http://ceruleanlabs.github.io/Chicago-Game-Jam-2013/js/utilities/SpriteColor.js': 'RELEASE' }, function () {
         // Simulate a load time for now to make sure this works
         setTimeout(function () {
           levelManager.loadMap(1, null); //when everything is loaded, run the main scene
