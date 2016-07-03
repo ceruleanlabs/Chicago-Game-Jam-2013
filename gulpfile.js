@@ -3,13 +3,14 @@ var gulp = require("gulp");
 var ghPages = require("gulp-gh-pages");
 var nodemon = require("gulp-nodemon");
 
+var SRC_PATH = "./src/";
+var DIST_PATH = "./dist/";
+
 gulp.task("deploy", ["build"], function () {
   return gulp.src("./dist/**/*").pipe(ghPages());
 });
 
-gulp.task("build", function () {
-  var srcPath = "./src/";
-  var distPath = "./dist/";
+gulp.task("build", ["clean"], function () {
   var filesToCopy = [
     "css/*",
     "images/*",
@@ -18,10 +19,21 @@ gulp.task("build", function () {
     "sounds/*"
   ];
 
-  del(distPath);
-  return gulp.src(filesToCopy, { cwd: srcPath + "/**" }).pipe(gulp.dest(distPath));
+  return gulp.src(filesToCopy, { cwd: SRC_PATH + "/**" }).pipe(gulp.dest(DIST_PATH));
+});
+
+gulp.task("clean", function () {
+  return del(DIST_PATH);
 });
 
 gulp.task("server", ["build"], function (cb) {
-  nodemon({ script: "server.js" });
+  return nodemon({
+    script: "server.js",
+    ext: "js html css",
+    watch: [SRC_PATH],
+    ignore: ["src/maps", DIST_PATH],
+    tasks: ["build"]
+  }).on("restart", function () {
+    console.log("restarted!");
+  });
 });
