@@ -2,6 +2,7 @@ var del = require("del");
 var gulp = require("gulp");
 var ghPages = require("gulp-gh-pages");
 var nodemon = require("gulp-nodemon");
+var processMaps = require("./process-maps.js");
 
 var SRC_PATH = "./src/";
 var DIST_PATH = "./dist/";
@@ -10,7 +11,7 @@ gulp.task("deploy", ["build"], function () {
   return gulp.src("./dist/**/*").pipe(ghPages());
 });
 
-gulp.task("build", ["clean"], function () {
+gulp.task("build", ["maps"], function () {
   var filesToCopy = [
     "css/*",
     "images/*",
@@ -36,4 +37,10 @@ gulp.task("server", ["build"], function () {
   }).on("restart", function () {
     console.log("restarted!");
   });
+});
+
+gulp.task("maps", ["clean"], function () {
+  gulp.src("maps/map*.txt", { cwd: SRC_PATH })
+    .pipe(processMaps())
+    .pipe(gulp.dest(DIST_PATH + "map/load/"));
 });
