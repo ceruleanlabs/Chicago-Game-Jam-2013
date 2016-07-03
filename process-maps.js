@@ -42,7 +42,11 @@ module.exports = function () {
       mapObj.metadata = {};
       for(; c < lines.length; c++) {
         var keyVal = lines[c].split(": ");
-        mapObj.metadata[keyVal[0]] = keyVal[1];
+        if (keyVal[0] === "link_items") {
+          mapObj.metadata[keyVal[0]] = JSON.parse(keyVal[1]);
+        } else {
+          mapObj.metadata[keyVal[0]] = keyVal[1];
+        }
       }
 
       file.contents = new Buffer(JSON.stringify(mapObj));
