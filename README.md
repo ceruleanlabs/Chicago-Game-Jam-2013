@@ -2,7 +2,7 @@
 
 &lt;it's a metaphor for death&gt;
 
-**Playable URL:** [http://forkit-chigamejam2013.herokuapp.com/](http://forkit-chigamejam2013.herokuapp.com/)
+**Playable URL:** https://ceruleanlabs.github.io/Chicago-Game-Jam-2013/
 
 **Created By:** This game was made by Thomas Jacobs, Kevin Folk, Tom Berg and Dan Bergren
 
