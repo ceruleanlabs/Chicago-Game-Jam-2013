@@ -10,7 +10,9 @@
 
 ## Development
 
-TBD
+    $ gulp server
+
+Then head to [localhost:8080](http://localhost:8080). Magic!
 
 ## Build
 
