@@ -25,7 +25,7 @@ Crafty.c("Moveable", {
     },
 
     resetPosition: function() {
-        if (this._previous_x !== false && this._previous_y !== false) {
+        if (typeof(this._previous_x) !== "undefined" && typeof(this._previous_y) !== "undefined") {
             this.x = this._previous_x;
             this.y = this._previous_y;
         } else if (this.x < 0 || this.y < 0) {

@@ -45,7 +45,7 @@ var levelManager = {
                 gameBoard.setNextMap(nextMap);
                 gameBoard.currentMap = level;
                 gameBoard.setLives(mapData.metadata.lives);
-                if(mapData.metadata.floor_type !== null)
+                if(typeof(mapData.metadata.floor_type) !== "undefined")
                     floor_type = mapData.metadata.floor_type;
                 console.log("set", nextMap);
 
@@ -88,15 +88,15 @@ var levelManager = {
         item1 = this.findItemAtCoordinates(x1, y1);
         item2 = this.findItemAtCoordinates(x2, y2);
 
-        if(item1 !== null && item2 !== null) {
+        if(typeof(item1) !== "undefined" && typeof(item2) !== "undefined") {
             item1.link_item(item2);
         } else {
-            console.log('Cant link items', x1, y1, x2, y2);
+            console.log("Can't link items", x1, y1, x2, y2);
         }
     },
 
     linkMetaDataItems: function() {
-        if(levelManager.metadata.link_items !== null) {
+        if(typeof(levelManager.metadata.link_items) !== "undefined") {
             for (var i=0; i < levelManager.metadata.link_items.length; i++) {
                 link_set = levelManager.metadata.link_items[i];
                 levelManager.linkItems(link_set[0][0], link_set[0][1], link_set[1][0], link_set[1][1]);
