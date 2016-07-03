@@ -21,7 +21,6 @@ Crafty.scene("loading", function () {
         texture_fence_down_afterlife: [1, 4],
         texture_fence_left: [0, 5],
         texture_fence_left_afterlife: [1, 5],
-        texture_fence_left_afterlife: [1, 5],
         texture_door_up_left: [0, 6],
         texture_door_up_right: [1, 6],
         texture_door_right_left: [0, 7],
@@ -84,7 +83,7 @@ Crafty.scene("loading", function () {
     });
 
     // Loads the sprite color module from an external source
-    Crafty.modules({ 'http://forkit-chigamejam2013.herokuapp.com/js/utilities/SpriteColor.js': 'RELEASE' }, function () {
+    Crafty.modules({ 'https://ceruleanlabs.github.io/Chicago-Game-Jam-2013/js/utilities/SpriteColor.js': 'RELEASE' }, function () {
         // Simulate a load time for now to make sure this works
         setTimeout(function () {
           levelManager.loadMap(1, null); //when everything is loaded, run the main scene

@@ -1,6 +1,6 @@
 /**
 * This file contains the player character.
-*  
+*
 * Author: Fork It, We'll do it live!
 */
 
@@ -23,7 +23,7 @@ Crafty.c("Player", {
                 soundManager.playSound("player_hurt", 0.3);
                 this._dead = true;
                 that = this;
-                gameBoard.registerTimeout(setTimeout(function(){that.kill()},1000));
+                gameBoard.registerTimeout(setTimeout(function(){that.kill();},1000));
             }
         });
 
@@ -48,7 +48,7 @@ Crafty.c("Player", {
     },
 
     kill: function() {
-        if(gameBoard.playerDied() == false) return;
+        if(gameBoard.playerDied() === false) return;
         var dead_body = Crafty.e("2D, DOM, Color, " + this._dead_replacement).attr({x: this.x, y: this.y + 28, w: this.h, h: this.w, z: -1});
         var new_player = Crafty.e("GhostPlayer").attr({x: this.x, y: this.y, w: this.w, h: this.h});
         new_player.set_items(this._items);
@@ -81,7 +81,7 @@ Crafty.c("GhostPlayer", {
         this.requires("DOM, 2D, Collision, Movement, player_dead_standing")
         .stopOnSolids();
         that = this;
-        gameBoard.registerTimeout(setTimeout(function(){that.kill()}, this._timer));
+        gameBoard.registerTimeout(setTimeout(function(){that.kill();}, this._timer));
         gameBoard.startTimer(this._timer);
 
         this.onHit('Collectable', function (collectibles) {
