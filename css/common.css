@@ -61,7 +61,7 @@ h2 {
 }
 
 #lives > div {
-  background: url("/images/heart.png");
+  background: url("images/heart.png");
   float: left;
   width: 20px;
   height: 20px;
