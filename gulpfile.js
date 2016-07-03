@@ -26,7 +26,7 @@ gulp.task("clean", function () {
   return del(DIST_PATH);
 });
 
-gulp.task("server", ["build"], function (cb) {
+gulp.task("server", ["build"], function () {
   return nodemon({
     script: "server.js",
     ext: "js html css",
