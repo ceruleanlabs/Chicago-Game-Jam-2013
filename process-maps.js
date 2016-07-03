@@ -23,13 +23,15 @@ module.exports = function () {
       var numCols = parseInt(sizes[1]);
       var mapObj = {};
 
-      mapObj.layers = [];
+      // is an array of arrays b/c we probably initially wanted to support layered maps
+      mapObj.layers = [[]];
       for (; c <= numRows; c++) {
         var row = [];
         for (var i = 0; i < numCols; i++) {
           row.push(lines[c][i]);
         }
-        mapObj.layers.push(row);
+        // existing maps only support one layer, so hardcode this for now
+        mapObj.layers[0].push(row);
       }
 
       // advance cursor until we get to the METADATA section
