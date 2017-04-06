@@ -8,7 +8,7 @@ var SRC_PATH = "./src/";
 var DIST_PATH = "./dist/";
 
 gulp.task("deploy", ["build"], function () {
-  return gulp.src("./dist/**/*").pipe(ghPages());
+  return gulp.src(DIST_PATH + "**/*").pipe(ghPages());
 });
 
 gulp.task("build", ["maps"], function () {
