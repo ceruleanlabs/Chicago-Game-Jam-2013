@@ -4,7 +4,7 @@
   "description": "&lt;it's a metaphor for death&gt;",
   "main": "server.js",
   "dependencies": {
-    "del": "^2.2.1",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-nodemon": "^2.1.0",
